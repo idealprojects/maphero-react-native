@@ -13,7 +13,7 @@ After installing this npm package, add the [config plugin](https://docs.expo.io/
 ```json
 {
   "expo": {
-    "plugins": ["@maplibre/maplibre-react-native"]
+    "plugins": ["@mapngin/maphero-react-native"]
   }
 }
 ```
@@ -22,4 +22,4 @@ Next, rebuild your app as described in the ["Adding custom native code"](https:/
 
 ## API
 
-This plugin doesn't currently provide any additional properties for customization. The plugin simply generates the pre-install block in the `ios/Podfile` (the post-install block is not required for Expo support). No additional changes are done on Android.
+This plugin doesn't currently provide any additional properties for customization. The plugin adds the MapHero install hooks to the generated `ios/Podfile`, which bring in the MapHero iOS SDK. No additional changes are made on Android. Set your key with `MapHero.setAccessToken(...)` as on any other app.

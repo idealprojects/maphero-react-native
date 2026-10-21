@@ -1,6 +1,6 @@
 <!-- DO NOT MODIFY -->
 <!-- This file is auto-generated from src/modules/offline/offlineManager.ts -->
-# `<MapLibreGL.offlineManager />`
+# `<MapHero.offlineManager />`
 OfflineManager implements a singleton (shared object) that manages offline packs.<br/>All of this class’s instance methods are asynchronous, reflecting the fact that offline resources are stored in a database.<br/>The shared object maintains a canonical collection of offline packs.
 
 
@@ -22,9 +22,9 @@ Creates and registers an offline pack that downloads the resources needed to use
 const progressListener = (offlineRegion, status) => console.log(offlineRegion, status);
 const errorListener = (offlineRegion, err) => console.log(offlineRegion, err);
 
-await MapLibreGL.offlineManager.createPack({
+await MapHero.offlineManager.createPack({
   name: 'offlinePack',
-  styleURL: 'mapbox://...',
+  styleURL: 'https://<your-map>.maphero.io/style.json',
   minZoom: 14,
   maxZoom: 20,
   bounds: [[neLng, neLat], [swLng, swLat]]
@@ -44,7 +44,7 @@ Invalidates the specified offline pack. This method checks that the tiles in the
 
 
 ```javascript
-await MapLibreGL.offlineManager.invalidatePack('packName')
+await MapHero.offlineManager.invalidatePack('packName')
 ```
 
 
@@ -60,7 +60,7 @@ Unregisters the given offline pack and allows resources that are no longer requi
 
 
 ```javascript
-await MapLibreGL.offlineManager.deletePack('packName')
+await MapHero.offlineManager.deletePack('packName')
 ```
 
 
@@ -72,7 +72,7 @@ Forces a revalidation of the tiles in the ambient cache and downloads a fresh ve
 
 
 ```javascript
-await MapLibreGL.offlineManager.invalidateAmbientCache();
+await MapHero.offlineManager.invalidateAmbientCache();
 ```
 
 
@@ -84,7 +84,7 @@ Erases resources from the ambient cache.<br/>This method clears the cache and de
 
 
 ```javascript
-await MapLibreGL.offlineManager.clearAmbientCache();
+await MapHero.offlineManager.clearAmbientCache();
 ```
 
 
@@ -100,7 +100,7 @@ Sets the maximum size of the ambient cache in bytes. Disables the ambient cache 
 
 
 ```javascript
-await MapLibreGL.offlineManager.setMaximumAmbientCacheSize(5000000);
+await MapHero.offlineManager.setMaximumAmbientCacheSize(5000000);
 ```
 
 
@@ -112,7 +112,7 @@ Deletes the existing database, which includes both the ambient cache and offline
 
 
 ```javascript
-await MapLibreGL.offlineManager.resetDatabase();
+await MapHero.offlineManager.resetDatabase();
 ```
 
 
@@ -124,7 +124,7 @@ Retrieves all the current offline packs that are stored in the database.
 
 
 ```javascript
-const offlinePacks = await MapLibreGL.offlineManager.getPacks();
+const offlinePacks = await MapHero.offlineManager.getPacks();
 ```
 
 
@@ -140,7 +140,7 @@ Retrieves an offline pack that is stored in the database by name.
 
 
 ```javascript
-const offlinePack = await MapLibreGL.offlineManager.getPack();
+const offlinePack = await MapHero.offlineManager.getPack();
 ```
 
 
@@ -156,7 +156,7 @@ Sideloads offline db
 
 
 ```javascript
-await MapLibreGL.offlineManager.mergeOfflineRegions(path);
+await MapHero.offlineManager.mergeOfflineRegions(path);
 ```
 
 
@@ -172,7 +172,7 @@ Sets the maximum number of tiles that may be downloaded and stored on the curren
 
 
 ```javascript
-MapLibreGL.offlineManager.setTileCountLimit(1000);
+MapHero.offlineManager.setTileCountLimit(1000);
 ```
 
 
@@ -188,7 +188,7 @@ Sets the period at which download status events will be sent over the React Nati
 
 
 ```javascript
-MapLibreGL.offlineManager.setProgressEventThrottle(500);
+MapHero.offlineManager.setProgressEventThrottle(500);
 ```
 
 
@@ -208,7 +208,7 @@ Subscribe to download status/error events for the requested offline pack.<br/>No
 ```javascript
 const progressListener = (offlinePack, status) => console.log(offlinePack, status)
 const errorListener = (offlinePack, err) => console.log(offlinePack, err)
-MapLibreGL.offlineManager.subscribe('packName', progressListener, errorListener)
+MapHero.offlineManager.subscribe('packName', progressListener, errorListener)
 ```
 
 
@@ -224,7 +224,7 @@ Unsubscribes any listeners associated with the offline pack.<br/>It's a good ide
 
 
 ```javascript
-MapLibreGL.offlineManager.unsubscribe('packName')
+MapHero.offlineManager.unsubscribe('packName')
 ```
 
 

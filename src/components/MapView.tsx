@@ -69,16 +69,16 @@ interface MapViewProps extends BaseProps {
    */
   style?: ViewProps["style"];
   /**
-   * Style URL for map - notice, if non is set it _will_ default to `MapLibreGL.StyleURL.Default`
+   * Style URL for map - notice, if non is set it _will_ default to `MapHero.StyleURL.Default`
    */
   styleURL?: string;
   /**
-   * StyleJSON for map - according to TileJSON specs: https://github.com/mapbox/tilejson-spec
+   * StyleJSON for map - a style document, as an alternative to `styleURL`
    */
   styleJSON?: string;
   /**
    * iOS: The preferred frame rate at which the map view is rendered.
-   * The default value for this property is MLNMapViewPreferredFramesPerSecondDefault,
+   * The default value for this property is MHMapViewPreferredFramesPerSecondDefault,
    * which will adaptively set the preferred frame rate based on the capability of
    * the user’s device to maintain a smooth experience. This property can be set to arbitrary integer values.
    *
@@ -110,7 +110,7 @@ interface MapViewProps extends BaseProps {
   /**
    * Enable/Disable attribution on map.
    *
-   * This must be enabled for Mapbox-hosted tiles and styles. Please refer to the Mapbox Terms of Service.
+   * Keep it enabled for MapHero maps: the attribution credits the map data providers.
    * Other providers do not require this.
    */
   attributionEnabled?: boolean;
@@ -282,7 +282,7 @@ export interface MapViewRef {
 }
 
 /**
- * MapView backed by MapLibre Native
+ * MapView backed by the MapHero native SDKs
  */
 const MapView = memo(
   forwardRef<MapViewRef, MapViewProps>(

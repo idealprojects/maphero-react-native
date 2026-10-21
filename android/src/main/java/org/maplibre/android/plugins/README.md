@@ -1,4 +1,4 @@
-# Vendored MapLibre plugins
+# Vendored map plugins (MapHero)
 
 `annotation`, `markerview` and `localization` are the sources of MapLibre's
 `android-plugin-{annotation,markerview,localization}-v9` 3.0.1 (BSD-2-Clause, see each file's

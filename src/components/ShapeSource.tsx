@@ -29,7 +29,7 @@ import {
 import { copyPropertiesAsDeprecated } from "../utils/deprecation";
 import { getFilter } from "../utils/filterUtils";
 
-const MapLibreRN = NativeModules.MHRNModule;
+const MapHeroRN = NativeModules.MHRNModule;
 export const NATIVE_MODULE_NAME = "MLRNShapeSource";
 export const SHAPE_SOURCE_NATIVE_ASSETS_KEY = "assets";
 
@@ -164,7 +164,7 @@ const ShapeSource = memo(
   forwardRef<ShapeSourceRef, ShapeSourceProps>(
     (
       {
-        id: shapeId = MapLibreRN.StyleSource.DefaultSourceID,
+        id: shapeId = MapHeroRN.StyleSource.DefaultSourceID,
         ...props
       }: ShapeSourceProps,
       ref,

@@ -15,7 +15,7 @@ import { type FilterExpression } from "../utils/MapHeroRNStyles";
 import { copyPropertiesAsDeprecated } from "../utils/deprecation";
 import { getFilter } from "../utils/filterUtils";
 
-const MapLibreRN = NativeModules.MHRNModule;
+const MapHeroRN = NativeModules.MHRNModule;
 
 export const NATIVE_MODULE_NAME = "MLRNVectorSource";
 
@@ -87,14 +87,14 @@ const MLRNVectorSource =
   requireNativeComponent<VectorSourceProps>(NATIVE_MODULE_NAME);
 
 /**
- * VectorSource is a map content source that supplies tiled vector data in Mapbox Vector Tile format to be shown on the map.
+ * VectorSource is a map content source that supplies tiled vector data in vector tile (MVT) format to be shown on the map.
  * The location of and metadata about the tiles are defined either by an option dictionary or by an external file that conforms to the TileJSON specification.
  */
 const VectorSource = memo(
   forwardRef(
     (
       {
-        id = MapLibreRN.StyleSource.DefaultSourceID,
+        id = MapHeroRN.StyleSource.DefaultSourceID,
         ...props
       }: VectorSourceProps,
       ref,

@@ -1,5 +1,10 @@
-## MapLibreGL
-###
+## MapHero
+
+The default export of `@mapngin/maphero-react-native`:
+
+```js
+import MapHero from '@mapngin/maphero-react-native';
+```
 
 ### methods
 #### setAccessToken(accessToken)
@@ -7,21 +12,17 @@
 ##### arguments
 | Name | Type | Required | Description  |
 | ---- | :--: | :------: | :----------: |
-| `accessToken` | `String` | `Yes` | access token to pull Mapbox-hosted tiles; can be `null` for other tile hosts |
+| `accessToken` | `String` | `Yes` | Your publishable MapHero API key (`mh_pk_…`). |
 
 ##### Description
-sets the accessToken, which is required when you want to use mapbox tiles
-not required when using other tiles
+Sets the API key for every map in the app. Call it once, before any map renders. The native SDK
+sends it as `X-API-Key` on every request the map makes, with your app's package name (Android) or
+bundle id (iOS) beside it, for keys restricted to named apps.
 
 #### getAccessToken()
 
-##### arguments
-| Name | Type | Required | Description  |
-| ---- | :--: | :------: | :----------: |
-| `accessToken` | `String` | `Yes` | access token to pull Mapbox-hosted tiles; can be `null` if for other tile hosts |
-
 ##### Description
-gets the accessToken
+Returns a promise of the key set with `setAccessToken`.
 
 
 #### addCustomHeader(headerName, headerValue)
@@ -33,7 +34,8 @@ gets the accessToken
 | `headerValue` | `String` | `Yes` | value for customHeader |
 
 ##### Description
-also see [CustomHttpHeaders](/docs/CustomHttpHeaders.md)
+Adds a header to every map request. Not needed for authentication — `setAccessToken` covers that.
+Also see [CustomHttpHeaders](/docs/CustomHttpHeaders.md).
 
 
 #### removeCustomHeader(headerName)

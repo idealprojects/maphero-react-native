@@ -1,32 +1,30 @@
-# Android Installation
+# Android installation
 
-## Access tokens
+Nothing beyond `npm install`: autolinking adds the module, and the MapHero Android SDK
+(`io.maphero:android-sdk`, on Maven Central) comes with it. Requires Android 6.0 (API 23) or later.
 
-> [!NOTE]
-> MapLibre Native for Android is slightly peculiar in that it
-_requires_ setting an access token, even though it will be `null` for
-most users (only Mapbox authenticates this way). Even if it feels odd,
-you have to have a line like this in your code before using the library.
-You can put this near the top of your `App.js` for convenience.
+## Your API key
+
+Set your publishable MapHero key once, before any map renders — for example at the top of `App.js`:
 
 ```javascript
-MapHeroGL.setAccessToken(null);
+import MapHero from "@mapngin/maphero-react-native";
+
+MapHero.setAccessToken("mh_pk_your_publishable_key");
 ```
+
+On Android a `MapView` cannot be created before this call. The SDK then sends the key as
+`X-API-Key` on every map request, with `X-MapHero-Android-Package` and `X-MapHero-Android-Cert`
+(your signing certificate's SHA-256) beside it. Restrict the key to that package and certificate
+in the MapHero Console.
 
 ## Setting connection status
 
-TODO: check if this is still an issue with MapLibre Native on Android (issue #21).
-
-If you are hosting styles and sources on localhost, you might need to set
-the connection status manually for the SDK to be able to use them.
-See [mapbox/mapbox-gl-native#12819](https://github.com/mapbox/mapbox-gl-native/issues/12819).
-
-Manually sets the connectivity state of the app, bypassing any checks to the
-`ConnectivityManager`. Set to `true` for connected, `false` for disconnected,
-and `null` for the normal `ConnectivityManager` behavior.
+If you host styles or sources on localhost, you may need to set the connection status manually.
+Set `true` for connected, `false` for disconnected, and `null` for the system's normal behaviour:
 
 ```js
-import MapHeroGL from "@mapngin/maphero-react-native";
+import MapHero from "@mapngin/maphero-react-native";
 
-MapHeroGL.setConnected(true);
+MapHero.setConnected(true);
 ```

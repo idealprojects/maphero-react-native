@@ -90,25 +90,25 @@ export function getLayerType(layer: any, platform: "android" | "ios") {
 
   switch (layer.name) {
     case "fill":
-      return isIOS ? "MLNFillStyleLayer" : "FillLayer";
+      return isIOS ? "MHFillStyleLayer" : "FillLayer";
     case "fill-extrusion":
-      return isIOS ? "MLNFillExtrusionStyleLayer" : "FillExtrusionLayer";
+      return isIOS ? "MHFillExtrusionStyleLayer" : "FillExtrusionLayer";
     case "line":
-      return isIOS ? "MLNLineStyleLayer" : "LineLayer";
+      return isIOS ? "MHLineStyleLayer" : "LineLayer";
     case "symbol":
-      return isIOS ? "MLNSymbolStyleLayer" : "SymbolLayer";
+      return isIOS ? "MHSymbolStyleLayer" : "SymbolLayer";
     case "circle":
-      return isIOS ? "MLNCircleStyleLayer" : "CircleLayer";
+      return isIOS ? "MHCircleStyleLayer" : "CircleLayer";
     case "background":
-      return isIOS ? "MLNBackgroundStyleLayer" : "BackgroundLayer";
+      return isIOS ? "MHBackgroundStyleLayer" : "BackgroundLayer";
     case "raster":
-      return isIOS ? "MLNRasterStyleLayer" : "RasterLayer";
+      return isIOS ? "MHRasterStyleLayer" : "RasterLayer";
     case "heatmap":
-      return isIOS ? "MLNHeatmapStyleLayer" : "HeatmapLayer";
+      return isIOS ? "MHHeatmapStyleLayer" : "HeatmapLayer";
     case "hillshade":
-      return isIOS ? "MLNHillshadeStyleLayer" : "HillshadeLayer";
+      return isIOS ? "MHHillshadeStyleLayer" : "HillshadeLayer";
     case "light":
-      return isIOS ? "MLNLight" : "Light";
+      return isIOS ? "MHLight" : "Light";
     default:
       throw new Error(
         `Is ${layer.name} a new layer? We should add support for it!`,

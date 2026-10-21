@@ -1,3 +1,5 @@
+# MapHero React Native changelog
+
 ## MapHero 1.1.0
 
 - The API key set with `MapHero.setAccessToken` is sent as `X-API-Key` on every map request, on both
@@ -8,6 +10,11 @@
   annotation, marker-view and localization plugins were linked against MapHero types. They are now
   vendored and compiled against MapHero (`android/src/main/java/org/maplibre/android/plugins`), and
   the second, upstream MapLibre SDK the package pulled in is gone.
+
+## Upstream history (maplibre-react-native)
+
+Everything below is the changelog of the open-source maplibre-react-native project that MapHero
+React Native is derived from, kept for reference. Its pull-request links point at that project.
 
 ## UNRELEASED
 

@@ -6,7 +6,7 @@ import useOnce from "../hooks/useOnce";
 import { type BaseProps } from "../types/BaseProps";
 import { cloneReactChildrenWithProps } from "../utils";
 
-const MapLibreRN = NativeModules.MHRNModule;
+const MapHeroRN = NativeModules.MHRNModule;
 
 export const NATIVE_MODULE_NAME = "MLRNRasterSource";
 
@@ -42,7 +42,7 @@ interface RasterSourceProps extends BaseProps {
   maxZoomLevel?: number;
   /**
    * Size of the map tiles.
-   * Mapbox urls default to 256, all others default to 512.
+   * Defaults to 512.
    */
   tileSize?: number;
   /**
@@ -69,7 +69,7 @@ const MLRNRasterSource =
  * or by an external file that conforms to the TileJSON specification.
  */
 const RasterSource: React.FC<RasterSourceProps> = ({
-  id = MapLibreRN.StyleSource.DefaultSourceID,
+  id = MapHeroRN.StyleSource.DefaultSourceID,
   ...props
 }: RasterSourceProps) => {
   useOnce(() => {

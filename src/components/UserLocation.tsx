@@ -110,7 +110,7 @@ interface UserLocationProps {
    */
   androidPreferredFramesPerSecond?: number;
   /**
-   * Custom location icon of type mapbox-gl-native components
+   * Custom location icon, as native map components
    *
    * NOTE: Forking maintainer does not understand the above comment.
    */

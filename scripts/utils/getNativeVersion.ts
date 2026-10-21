@@ -1,43 +1,18 @@
-import { promises as fs } from "fs";
-import path from "node:path";
 
-async function getNativeVersion(pathSegments: string[], regex: RegExp) {
-  const resolvedFilePath = path.join(__dirname, "..", "..", ...pathSegments);
-  const lines = (await fs.readFile(resolvedFilePath, "utf8")).split("\n");
-  const line = lines.filter((i) => regex.exec(i))[0];
-  const version = line && regex.exec(line)?.[1];
+/*
+ * The style specification's support tables are keyed to MapLibre Native release numbers, and
+ * the generator uses them to decide which style properties each platform supports. The MapHero
+ * SDKs version independently (Android 1.3.0, iOS 1.3.3) but carry the style support of the
+ * MapLibre Native releases below -- the same values the generator read when this package still
+ * depended on MapLibre directly -- so these are pinned rather than read from build.gradle or the
+ * podspec. Feeding MapHero's own numbers in would mark most properties unsupported.
+ */
+const MAPLIBRE_ANDROID_BASE = "11.5.0";
+const MAPLIBRE_IOS_BASE = "6.5.4";
 
-  if (!version) {
-    throw new Error("Could not find native version from " + resolvedFilePath);
-  }
+export const getAndroidVersion = async () => MAPLIBRE_ANDROID_BASE;
 
-  return version;
-}
-
-let cachedAndroidVersion: string;
-let cachedIosVersion: string;
-
-export const getAndroidVersion = async () => {
-  if (!cachedAndroidVersion) {
-    cachedAndroidVersion = await getNativeVersion(
-      ["android", "build.gradle"],
-      /^\s+implementation\s+"org.maplibre.gl:android-sdk:(\d+\.\d+\.\d+)"$/,
-    );
-  }
-
-  return cachedAndroidVersion;
-};
-
-export const getIosVersion = async () => {
-  if (!cachedIosVersion) {
-    cachedIosVersion = await getNativeVersion(
-      ["maplibre-react-native.podspec"],
-      /^\s+version:\s*"(\d+\.\d+\.\d+)"$/,
-    );
-  }
-
-  return cachedIosVersion;
-};
+export const getIosVersion = async () => MAPLIBRE_IOS_BASE;
 
 export function isVersionGTE(
   version: string,

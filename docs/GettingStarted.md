@@ -1,113 +1,65 @@
-# Getting Started
+# Getting started
 
-This quickstart guide provides a zero-to-map intro using React Native. From there you can check out the
-[examples](/packages/examples) folder if you want to jump in the deep end.
+From an empty React Native app to a MapHero map, on Android and iOS.
 
 ## Prerequisites
 
-1. On Android we support API 23 and higher
-2. You will need a vector tile source (such as Stadia Maps or MapTiler) for production use; a demonstration URL is used in the below example.
-
-## Dependencies
-
-- [node](https://nodejs.org)
-- [npm](https://www.npmjs.com/)
-- [React Native](https://facebook.github.io/react-native/) (0.60+)
-
-## Installation
-
-### Set up a React Native project
-
-If you don't have an existing React Native project, create one:
+1. Android 6.0 (API 23) or later; iOS 12 or later.
+2. A publishable MapHero API key (`mh_pk_…`) from the [MapHero Console](https://developer.maphero.io).
+3. [Node.js](https://nodejs.org) and a React Native project (0.60 or later). To create one:
 
 ```shell
-npx react-native init MyApp
+npx @react-native-community/cli init MyApp
 ```
 
-### Install Package
-
-From your React Native project's root directory, add the package via
-either `yarn` or `npm` (pick one).
+## Install
 
 ```shell
-# install with Yarn
-yarn add @maplibre/maplibre-react-native
-
+npm install @mapngin/maphero-react-native
+# or
+yarn add @mapngin/maphero-react-native
 ```
 
-```shell
-# install with NPM
-npm install @maplibre/maplibre-react-native --save
-```
+Then follow the platform notes: [Android](/android/install.md) · [iOS](/ios/install.md) ·
+[Expo](/plugin/install.md). On iOS that is one line in your Podfile and `pod install`.
 
-### Review platform specific Details
+## Add a map
 
-Check out the installation guide(s) for additional information about platform-specific setup, quirks,
-and steps required before running.
+```jsx
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import MapHero, { MapView, Camera } from '@mapngin/maphero-react-native';
 
-- [Android](/android/install.md)
-- [iOS](/ios/install.md)
-- [Expo](/plugin/install.md)
+// Your publishable key, set once before any map renders.
+MapHero.setAccessToken('mh_pk_your_publishable_key');
 
-## Adding a map
-
-Here is an example minimal App.js
-
-```js
-import React, {Component} from 'react';
-import {StyleSheet, View} from 'react-native';
-import MapLibreGL from '@mapngin/maphero-react-native';
-
-// Will be null for most users (only Mapbox authenticates this way).
-// Required on Android. See Android installation notes.
-MapLibreGL.setAccessToken(null);
+export default function App() {
+  return (
+    <View style={styles.page}>
+      <MapView style={styles.map} styleURL="https://regional5e739c.maphero.io/style.json">
+        <Camera centerCoordinate={[35.2544, 32.2211]} zoomLevel={12} />
+      </MapView>
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
-  page: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  map: {
-    flex: 1,
-    alignSelf: 'stretch',
-  },
+  page: { flex: 1 },
+  map: { flex: 1 },
 });
-
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.page}>
-        <MapLibreGL.MapView
-          style={styles.map}
-          logoEnabled={false}
-          styleURL="https://demotiles.maplibre.org/style.json"
-        />
-      </View>
-    );
-  }
-}
 ```
 
-## Run it!
+`styleURL` is your map's published style URL; the one above is the Regional map. Set the starting
+view with a `Camera` — `centerCoordinate` is `[longitude, latitude]`.
 
-### iOS
+## Run it
 
 ```shell
-# Run with yarn
-yarn run ios
-
-# or Run with NPM
 npm run ios
-```
-
-### Android
-
-```shell
-# Run with yarn
-yarn run android
-
-# or Run with NPM
 npm run android
 ```
+
+## Next
+
+- Draw routes, search results and markers: [developer.maphero.io/docs/sdk/react-native](https://developer.maphero.io/docs/sdk/react-native)
+- The MapHero APIs (search, routing, optimization): [API reference](https://developer.maphero.io/docs/search)

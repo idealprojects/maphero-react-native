@@ -8,7 +8,7 @@ import useAbstractLayer, {
 import { type BaseProps } from "../types/BaseProps";
 import { type CircleLayerStyleProps } from "../utils/MapHeroRNStyles";
 
-const MapLibreRN = NativeModules.MHRNModule;
+const MapHeroRN = NativeModules.MHRNModule;
 
 export const NATIVE_MODULE_NAME = "MLRNCircleLayer";
 
@@ -29,7 +29,7 @@ const MLRNCircleLayer = requireNativeComponent<NativeProps>(NATIVE_MODULE_NAME);
  * CircleLayer is a style layer that renders one or more filled circles on the map.
  */
 const CircleLayer: React.FC<CircleLayerProps> = ({
-  sourceID = MapLibreRN.StyleSource.DefaultSourceID,
+  sourceID = MapHeroRN.StyleSource.DefaultSourceID,
   ...props
 }: CircleLayerProps) => {
   const { baseProps, setNativeLayer } = useAbstractLayer<

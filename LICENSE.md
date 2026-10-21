@@ -1,3 +1,5 @@
+Copyright (c) 2025-2026 MapHero (Ideal Projects)
+
 Copyright (c) 2022 MapLibre contributors
 
 Copyright (c) 2015-2020 Mapbox

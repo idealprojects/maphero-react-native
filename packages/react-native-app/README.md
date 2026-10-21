@@ -1,4 +1,4 @@
-# MapLibre React Native Example App
+# MapHero React Native Example App
 
 This is an app to demonstrate the possibilities of `@mapngin/maphero-react-native` within React Native.
 

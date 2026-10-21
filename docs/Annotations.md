@@ -1,4 +1,4 @@
-Comparsion of various annotations available in MapLibre React Native:
+Comparison of the annotations available in MapHero React Native:
 
 |*Feature*              | *SymbolLayer*      |*PointAnnotation*                     |*MarkerView*             |*CircleLayer*        |
 |-----------------------|--------------------|--------------------------------------|-------------------------|---------------------|
@@ -8,5 +8,5 @@ Comparsion of various annotations available in MapLibre React Native:
 |Control Z-index        | &check;            |iOS: always on top, android: n/a      |always on top            | &check;             |
 |Clustering             | &check;            |                                      |                         | &check;             |
 |Style with expressions | &check;            |                                      |                         | &check;             |
-|iOS implementation     | [MLNSymbolStyleLayer](https://maplibre.org/maplibre-gl-native/ios/api/Classes/MLNSymbolStyleLayer.html)     |[MLNAnnotationView](https://maplibre.org/maplibre-gl-native/ios/api/Classes/MLNAnnotationView.html)                     |[MLNAnnotationView](https://maplibre.org/maplibre-gl-native/ios/api/Classes/MLNAnnotationView.html)       |[MLNCircleStyleLayer](https://maplibre.org/maplibre-gl-native/ios/api/Classes/MLNCircleStyleLayer.html)       |
-|android implementation | [SymbolLayer](https://maplibre.org/maplibre-gl-native/android/api/com/mapbox/mapboxsdk/style/layers/SymbolLayer.html)|[annotation.Symbol](https://docs.mapbox.com/android/api/plugins/annotation/0.8.0/com/mapbox/mapboxsdk/plugins/annotation/Symbol.html)|[annotation.Marker](https://docs.mapbox.com/android/api/plugins/markerview/0.4.0/com/mapbox/mapboxsdk/plugins/markerview/MarkerView.html) |[CircleLayer](https://maplibre.org/maplibre-gl-native/android/api/com/mapbox/mapboxsdk/style/layers/CircleLayer.html)|
+|iOS implementation     | `MHSymbolStyleLayer` | `MHAnnotationView` | `MHAnnotationView` | `MHCircleStyleLayer` |
+|android implementation | `SymbolLayer` | `annotation.Symbol` | `markerview.MarkerView` | `CircleLayer` |

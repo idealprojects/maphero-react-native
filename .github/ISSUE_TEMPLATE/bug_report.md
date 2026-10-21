@@ -45,7 +45,7 @@ Hello! Thanks for contributing.  For the fastest response and resolution, please
 - Emulator or Simulator: [yes/no]
 - Development OS: [e.g. macOS 15.0.0, Windows 11]
 - `@mapngin/maphero-react-native` Version: [e.g. 1.0.0]
-- MapLibre Native Version: [e.g. 6.7.0]
+- MapHero React Native version: [e.g. 1.1.0]
 - `react-native` Version: [e.g. 0.75.0]
 - `expo` Version: [e.g. 51.0.0]
 

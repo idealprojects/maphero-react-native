@@ -1,5 +1,8 @@
 ## Custom http headers
 
+> Authentication does not need this: `MapHero.setAccessToken` already sends your key as
+> `X-API-Key` on every request. Use custom headers for anything else your tile server needs.
+
 ### Intro
 
 Custom headers are implemented using OkHttp interseptor for android and method swizzling for iOS.
@@ -54,13 +57,13 @@ You can add and remove headers at runtime.
 #### To add a header
 
 ```javascript
-    MapLibreGL.addCustomHeader('Authorization', '{auth header}');
+    MapHero.addCustomHeader('Authorization', '{auth header}');
 ```
 
 #### To remove a header
 
 ```javascript
-    MapLibreGL.removeCustomHeader('Authorization');
+    MapHero.removeCustomHeader('Authorization');
 ```
 
 #### Working example
@@ -68,15 +71,15 @@ You can add and remove headers at runtime.
 ```javascript
 export default class HelloWorldApp extends Component {
   componentDidMount () {
-    MapLibreGL.addCustomHeader('Authorization', '{auth header}');
+    MapHero.addCustomHeader('Authorization', '{auth header}');
   }
 
   render () {
-    MapLibreGL.addCustomHeader('X-Some-Header', 'my-value');
+    MapHero.addCustomHeader('X-Some-Header', 'my-value');
     return (
       <View style={styles.page}>
         <View style={styles.container}>
-          <MapLibreGL.MapView
+          <MapHero.MapView
             style={styles.map}
             styleURL={STYLE_URL}/>
         </View>

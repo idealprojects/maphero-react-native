@@ -1,4 +1,4 @@
-# MapLibre Expo Example App
+# MapHero Expo Example App
 
 This is an app to demonstrate the possibilities of `@mapngin/maphero-react-native` within Expo.
 

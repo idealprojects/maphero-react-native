@@ -50,8 +50,7 @@ interface NativeProps extends ViewProps {
  *
  * If you have static view consider using PointAnnotation or SymbolLayer they'll offer much better performance
  * .
- * This is based on [MakerView plugin](https://docs.mapbox.com/android/plugins/overview/markerview/) on Android
- * and PointAnnotation on iOS.
+ * On Android this is a native marker view; on iOS it is a PointAnnotation.
  */
 const MarkerView = ({
   anchor = { x: 0.5, y: 0.5 },

@@ -48,6 +48,6 @@ Where do the concepts set new precedents?
 
 <!--
 How you would implement the design?
-What parts of the MapLibre GL ecosystem (ex: underlying renderers) will need to change to accommodate this design?
+What parts of the MapHero SDKs (Android, iOS, or the renderer underneath them) will need to change to accommodate this design?
 Are there any important edge cases?
 -->

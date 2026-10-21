@@ -175,6 +175,11 @@ async function generate() {
   }
 
   function formatDescription(description: string) {
+    // The style specification's prose names the MapLibre clients; these docs are MapHero's.
+    description = description.replace(
+      /like MapLibre GL JS version [\d.]+ or greater/g,
+      "such as the MapHero SDKs",
+    );
     const words = description.split(" ");
 
     for (let i = 0; i < words.length; i++) {

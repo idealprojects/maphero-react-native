@@ -120,11 +120,11 @@ class Logger {
       const { message } = log;
       const level = this.effectiveLevel(log);
       if (level === "error") {
-        console.error("MapLibre error", message, log);
+        console.error("MapHero error", message, log);
       } else if (level === "warning") {
-        console.warn("MapLibre warning", message, log);
+        console.warn("MapHero warning", message, log);
       } else {
-        console.log(`MapLibre [${level}]`, message, log);
+        console.log(`MapHero [${level}]`, message, log);
       }
     }
   }

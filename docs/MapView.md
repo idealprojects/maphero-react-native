@@ -1,22 +1,22 @@
 <!-- DO NOT MODIFY -->
 <!-- This file is auto-generated from src/components/MapView.tsx -->
-# `<MapLibreGL.MapView />`
-MapView backed by MapLibre Native
+# `<MapHero.MapView />`
+MapView backed by the MapHero native SDKs
 
 ## Props
 | Prop | Type | Default | Required | Description |
 | ---- | :--: | :-----: | :------: | :----------: |
 | contentInset | `number[] \| number` | `none` | `false` | The distance from the edges of the map view’s frame to the edges of the map view’s logical viewport. |
 | style | `ViewProps["style"]` | `none` | `false` | Style for wrapping React Native View |
-| styleURL | `string` | `none` | `false` | Style URL for map - notice, if non is set it _will_ default to `MapLibreGL.StyleURL.Default` |
-| styleJSON | `string` | `none` | `false` | StyleJSON for map - according to TileJSON specs: https://github.com/mapbox/tilejson-spec |
-| preferredFramesPerSecond | `number` | `none` | `false` | iOS: The preferred frame rate at which the map view is rendered.<br/>The default value for this property is MLNMapViewPreferredFramesPerSecondDefault,<br/>which will adaptively set the preferred frame rate based on the capability of<br/>the user’s device to maintain a smooth experience. This property can be set to arbitrary integer values.<br/><br/>Android: The maximum frame rate at which the map view is rendered, but it can't excess the ability of device hardware.<br/>This property can be set to arbitrary integer values. |
+| styleURL | `string` | `none` | `false` | Style URL for map - notice, if non is set it _will_ default to `MapHero.StyleURL.Default` |
+| styleJSON | `string` | `none` | `false` | StyleJSON for map - a style document, as an alternative to `styleURL` |
+| preferredFramesPerSecond | `number` | `none` | `false` | iOS: The preferred frame rate at which the map view is rendered.<br/>The default value for this property is MHMapViewPreferredFramesPerSecondDefault,<br/>which will adaptively set the preferred frame rate based on the capability of<br/>the user’s device to maintain a smooth experience. This property can be set to arbitrary integer values.<br/><br/>Android: The maximum frame rate at which the map view is rendered, but it can't excess the ability of device hardware.<br/>This property can be set to arbitrary integer values. |
 | localizeLabels | `boolean` | `false` | `false` | Automatically change the language of the map labels to the system’s preferred language,<br/>this is not something that can be toggled on/off |
 | zoomEnabled | `boolean` | `none` | `false` | Enable/Disable zoom on the map |
 | scrollEnabled | `boolean` | `true` | `false` | Enable/Disable scroll on the map |
 | pitchEnabled | `boolean` | `true` | `false` | Enable/Disable pitch on map |
 | rotateEnabled | `boolean` | `true` | `false` | Enable/Disable rotation on map |
-| attributionEnabled | `boolean` | `true` | `false` | Enable/Disable attribution on map.<br/><br/>This must be enabled for Mapbox-hosted tiles and styles. Please refer to the Mapbox Terms of Service.<br/>Other providers do not require this. |
+| attributionEnabled | `boolean` | `true` | `false` | Enable/Disable attribution on map.<br/><br/>Keep it enabled for MapHero maps: the attribution credits the map data providers.<br/>Other providers do not require this. |
 | attributionPosition | `{ top?: number; left?: number } \| { top?: number; right?: number } \| { bottom?: number; left?: number } \| { bottom?: number; right?: number }` | `none` | `false` | Adds attribution offset, e.g. `{top: 8, left: 8}` will put attribution button in top-left corner of the map |
 | tintColor | `string \| unknown[]` | `none` | `false` | MapView's tintColor |
 | logoEnabled | `boolean` | `false` | `false` | Enable/Disable the logo on the map. |
